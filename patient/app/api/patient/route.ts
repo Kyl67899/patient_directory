@@ -1,37 +1,12 @@
-import { Patient } from "@/app/types/patient"
+// app/api/patients/route.ts
 import { NextResponse } from "next/server"
-
-const mockPatients: Patient[] = [
-  {
-    patient_id: 1,
-    patient_name: "John Doe",
-    age: 45,
-    photo_url: "",
-    medical_issue: "Diabetes",
-    contact: [
-      {
-        address: "123 Main St",
-        number: "555-1234",
-        email: "john@example.com",
-      },
-    ],
-  },
-  {
-    patient_id: 2,
-    patient_name: "Jane Smith",
-    age: 32,
-    photo_url: "",
-    medical_issue: "Asthma",
-    contact: [
-      {
-        address: "456 Elm St",
-        number: "555-5678",
-        email: "jane@example.com",
-      },
-    ],
-  },
-]
+import path from "path"
+import { promises as fs } from "fs"
 
 export async function GET() {
-  return NextResponse.json(mockPatients)
+  const filePath = path.join(process.cwd(), "public", "mock.json")
+  const fileContents = await fs.readFile(filePath, "utf-8")
+  const data = JSON.parse(fileContents)
+
+  return NextResponse.json(data)
 }
