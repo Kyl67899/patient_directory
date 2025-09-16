@@ -38,39 +38,7 @@ export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
-
-  // useEffect(() => {
-  //   fetch("/public/mock.json")
-  //     .then(res => {
-  //       if (!res.ok) throw new Error("Network response was not ok")
-  //       return res.json()
-  //     })
-  //     .then(setData)
-  //     .catch((err) => {
-  //       console.error("Fetch error:", err)
-  //       alert("Failed to load patient data")
-  //     })
-  // }, [])
-
-  // const table = useReactTable({
-  //   data,
-  //   columns,
-  //   onSortingChange: setSorting,
-  //   onColumnFiltersChange: setColumnFilters,
-  //   onColumnVisibilityChange: setColumnVisibility,
-  //   onRowSelectionChange: setRowSelection,
-  //   getCoreRowModel: getCoreRowModel(),
-  //   getPaginationRowModel: getPaginationRowModel(),
-  //   getSortedRowModel: getSortedRowModel(),
-  //   getFilteredRowModel: getFilteredRowModel(),
-  //   state: {
-  //     sorting,
-  //     columnFilters,
-  //     columnVisibility,
-  //     rowSelection,
-  //   },
-  // })
-
+  
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
