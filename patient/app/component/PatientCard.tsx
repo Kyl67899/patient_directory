@@ -1,7 +1,4 @@
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
 import { Patient } from "../types/patient"
-import { Button } from "@/components/ui/button"
 
 const issueColorMap: Record<string, string> = {
   Fever: "bg-red-100 text-red-800",
