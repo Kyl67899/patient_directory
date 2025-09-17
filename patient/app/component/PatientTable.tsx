@@ -1,16 +1,7 @@
 // /components/patient/PatientTable.tsx
 "use client"
 
-import {
-  useReactTable,
-  getCoreRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-} from "@tanstack/react-table"
+
 import { useEffect, useState } from "react"
 import {
   Table as UITable,
@@ -30,7 +21,7 @@ import {
 import { flexRender } from "@tanstack/react-table"
 import { Patient } from "../types/patient"
 import { columns } from "./patient/PatientColumn"
-import type { Table } from "@tanstack/react-table"
+import type { ColumnFiltersState, SortingState, Table, VisibilityState } from "@tanstack/react-table"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
