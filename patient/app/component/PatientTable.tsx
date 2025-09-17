@@ -3,16 +3,7 @@
 
 import { useEffect, useState } from "react"
 import { Patient } from "../types/patient"
-import {
-  Table as UITable,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-// import { flexRender } from "@tanstack/react-table"
+
 import { columns } from "./patient/PatientColumn"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -26,10 +17,11 @@ import {
   getFilteredRowModel,
   SortingState,
   VisibilityState,
-  Table,
   ColumnFiltersState,
   flexRender,
+  Table,
 } from "@tanstack/react-table"
+import { Table as UITable, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
