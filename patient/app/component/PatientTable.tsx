@@ -3,11 +3,8 @@
 
 import { useEffect, useState } from "react"
 import { Patient } from "../types/patient"
-
 import { columns } from "./patient/PatientColumn"
-import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
 import {
   useReactTable,
@@ -22,6 +19,8 @@ import {
   Table,
 } from "@tanstack/react-table"
 import { Table as UITable, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
