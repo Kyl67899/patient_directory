@@ -9,20 +9,24 @@ import {
 import PatientCard from "./PatientCard"
 import PatientTable from "./PatientTable"
 import PatientToolbar from "./patientToolbar"
-import {
-  useReactTable,
-  getCoreRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  getFilteredRowModel
-} from "@tanstack/react-table"
 import { useEffect, useMemo, useState } from "react"
 import { Patient } from "../types/patient"
 import { columns as patientColumns } from "./patient/PatientColumn"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-
+import {
+  useReactTable,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  SortingState,
+  VisibilityState,
+  ColumnFiltersState,
+  flexRender,
+  Table,
+} from "@tanstack/react-table"
 export default function PatientTabs() {
   const [data, setData] = useState<Patient[]>([])
   const [loading, setLoading] = useState(true)

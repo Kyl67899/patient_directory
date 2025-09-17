@@ -1,10 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Skeleton } from "@/components/ui/skeleton";
-
-import PatientTabs from "./component/PatientTabs";
-import { Table as TanTable } from "@tanstack/react-table"
+import { Skeleton } from "@/components/ui/skeleton"
+import PatientTabs from "./component/PatientTabs"
 
 export default function Home() {
   const [loading, setLoading] = useState()
