@@ -4,7 +4,6 @@
 import { useEffect, useState } from "react"
 import { Patient } from "../types/patient"
 import { columns } from "./patient/PatientColumn"
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
 import {
   useReactTable,
@@ -21,6 +20,7 @@ import {
 import { Table as UITable, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
