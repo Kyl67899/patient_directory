@@ -28,38 +28,42 @@ export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
-  
+
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      {/* Filter + Column Toggle */}
+      <div className="flex flex-col gap-4 md:flex-row md:items-center py-4">
         <Input
           placeholder="Filter by name..."
           value={(table.getColumn("patient_name")?.getFilterValue() as string) ?? ""}
           onChange={(e) => table.getColumn("patient_name")?.setFilterValue(e.target.value)}
-          className="max-w-sm"
+          className="max-w-full md:max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table.getAllColumns().filter(col => col.getCanHide()).map(col => (
-              <DropdownMenuCheckboxItem
-                key={col.id}
-                checked={col.getIsVisible()}
-                onCheckedChange={(val) => col.toggleVisibility(!!val)}
-              >
-                {col.id}
-              </DropdownMenuCheckboxItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="md:ml-auto">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="w-full md:w-auto">
+                Columns <ChevronDown />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table.getAllColumns().filter(col => col.getCanHide()).map(col => (
+                <DropdownMenuCheckboxItem
+                  key={col.id}
+                  checked={col.getIsVisible()}
+                  onCheckedChange={(val) => col.toggleVisibility(!!val)}
+                >
+                  {col.id}
+                </DropdownMenuCheckboxItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
 
-      <div className="overflow-hidden rounded-md border">
-        <UITable>
+      {/* Table */}
+      <div className="overflow-x-auto rounded-md border">
+        <UITable className="min-w-[600px] w-full">
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
@@ -93,12 +97,13 @@ export default function PatientTable({ table }: { table: Table<Patient> }) {
         </UITable>
       </div>
 
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="text-muted-foreground flex-1 text-sm">
+      {/* Pagination + Selection Info */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0 md:space-x-2 py-4">
+        <div className="text-muted-foreground text-sm">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <div className="space-x-2">
+        <div className="flex gap-2">
           <Button
             variant="outline"
             size="sm"
