@@ -1,27 +1,24 @@
 // /components/patient/PatientTable.tsx
 "use client"
 
-
 import { useEffect, useState } from "react"
+import { Patient } from "../types/patient"
+import { ColumnFiltersState, flexRender, SortingState, Table, VisibilityState } from "@tanstack/react-table"
 import {
-  Table as UITable,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
+  Table as UITable,
 } from "@/components/ui/table"
+// import { flexRender } from "@tanstack/react-table"
+import { columns } from "./patient/PatientColumn"
 import { Input } from "@/components/ui/input"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
-import {
-  DropdownMenu, DropdownMenuTrigger, DropdownMenuContent,
-  DropdownMenuCheckboxItem,
-} from "@/components/ui/dropdown-menu"
-import { flexRender } from "@tanstack/react-table"
-import { Patient } from "../types/patient"
-import { columns } from "./patient/PatientColumn"
-import type { ColumnFiltersState, SortingState, Table, VisibilityState } from "@tanstack/react-table"
+// import type { ColumnFiltersState, SortingState, Table, VisibilityState } from "@tanstack/react-table"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
