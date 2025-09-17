@@ -4,12 +4,13 @@
 import { useEffect, useState } from "react"
 import { Patient } from "../types/patient"
 import {
+  Table as UITable,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  Table as UITable,
 } from "@/components/ui/table"
 // import { flexRender } from "@tanstack/react-table"
 import { columns } from "./patient/PatientColumn"
