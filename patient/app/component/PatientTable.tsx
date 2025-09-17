@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react"
 import { Patient } from "../types/patient"
-import { ColumnFiltersState, flexRender, SortingState, Table, VisibilityState } from "@tanstack/react-table"
 import {
   TableBody,
   TableCell,
@@ -18,7 +17,18 @@ import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
-// import type { ColumnFiltersState, SortingState, Table, VisibilityState } from "@tanstack/react-table"
+import {
+  useReactTable,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  SortingState,
+  VisibilityState,
+  Table,
+  ColumnFiltersState,
+  flexRender,
+} from "@tanstack/react-table"
 
 export default function PatientTable({ table }: { table: Table<Patient> }) {
   const [data, setData] = useState<Patient[]>([])
