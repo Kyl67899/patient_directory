@@ -8,7 +8,6 @@ const issueColorMap: Record<string, string> = {
   default: "bg-gray-100 text-gray-800",
 }
 
-
 export default function PatientCard({ patients }: { patients: Patient[] }) {
   return (
     <>
