@@ -12,14 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Patient } from "@/app/types/patient"
 
-const issueColorMap: Record<string, string> = {
-  Diabetes: "bg-red-100 text-red-800",
-  Asthma: "bg-blue-100 text-blue-800",
-  Hypertension: "bg-yellow-100 text-yellow-800",
-  Cancer: "bg-purple-100 text-purple-800",
-  default: "bg-gray-100 text-gray-800",
-}
-
 export const columns: ColumnDef<Patient>[] = [
   {
     accessorKey: "patient_id",
@@ -47,15 +39,23 @@ export const columns: ColumnDef<Patient>[] = [
     accessorKey: "medical_issue",
     header: "Medical Issue",
     cell: ({ row }) => {
-      const issue = row.original.medical_issue
+      const issue = row.original.medical_issue?.trim() || "default"
+  
       const colorMap: Record<string, string> = {
-        Diabetes: "bg-red-100 text-red-800",
-        Asthma: "bg-blue-100 text-blue-800",
-        Hypertension: "bg-yellow-100 text-yellow-800",
-        Cancer: "bg-purple-100 text-purple-800",
+        "Fever": "bg-red-100 text-red-800",
+        "Sore throat": "bg-blue-100 text-blue-800",
+        "Sprained Ankle": "bg-yellow-100 text-yellow-800",
+        "Ear Infection": "bg-purple-100 text-purple-800",
+        "Sinusitis": "bg-purple-100 text-purple-800",
+        "Allergic Reaction": "bg-purple-100 text-purple-800",
+        "Headache": "bg-purple-100 text-purple-800",
+        "Broken Arm": "bg-purple-100 text-purple-800",
+        "Stomach Ache": "bg-purple-100 text-purple-800",
+        "Rash": "bg-pink-100 text-pink-800",
+        "default": "bg-gray-100 text-gray-800",
       }
   
-      const color = colorMap[issue] ?? "bg-gray-100 text-gray-800"
+      const color = colorMap[issue] ?? colorMap["default"]
   
       return (
         <span className={`px-2 py-1 rounded text-sm font-medium ${color}`}>
