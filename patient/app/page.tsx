@@ -1,14 +1,27 @@
-import Navbar from "./component/navbar";
+"use client"
+
+import { useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton";
+
 import PatientTabs from "./component/PatientTabs";
 import { Table as TanTable } from "@tanstack/react-table"
 
 export default function Home() {
+  const [loading, setLoading] = useState()
+
   return (
     <>
-      <main className="p-6">
-      <PatientTabs />
-    </main>
-
+      {loading ? (
+        <div className="space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <Skeleton key={i} className="h-12 w-full rounded-md" />
+          ))}
+        </div>
+      ) : (
+        <main className="p-6">
+          <PatientTabs />
+        </main>
+      )}
     </>
   );
 }
