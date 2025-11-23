@@ -35,4 +35,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # patient_directory
-# patient_directory
+# Coming Soon
+
+# Fullstack MediConnect Medical App with Admin and Patient Dashaboard management
+
+- Chack out the concept -> https://medi--connect.vercel.app/
+
